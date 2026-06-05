@@ -51,7 +51,7 @@ flowchart LR
     LEGAL --> GATE
     REGS --> GATE
     CORE --> GATE
-    GATE -->|cited envelope or "unknown"| CC
+    GATE -->|cited envelope or unknown| CC
 
     style Chief fill:#16213e,stroke:#e94560,color:#fff
     style Brain fill:#0f3460,stroke:#533483,color:#fff
