@@ -4,7 +4,7 @@
 
 ---
 
-**This repository documents the architecture and design decisions for the AI Chief of Staff ("the Chief"). Source code is available upon request for interview processes.**
+**This repository documents the architecture and design decisions for the AI Chief of Staff ("the Chief"). Source code is available on request.**
 
 📄 [Portfolio](https://jamesshehan.dev) · 📬 [Request Source Access](mailto:james@jamesshehan.dev?subject=Source%20Access%20Request%20-%20AI%20Chief%20of%20Staff)
 
@@ -61,7 +61,7 @@ flowchart LR
 
 | Component | Function |
 |-----------|----------|
-| **FastMCP stdio server** | The tool surface Claude Code registers (`claude mcp add`). A second, in-process Agent-SDK server exists for tools that cannot be exposed over stdio, a real constraint of the MCP SDK. |
+| **FastMCP stdio server** | The tool surface Claude Code registers (`claude mcp add`). A second, in-process Agent-SDK server exists for tools that cannot be exposed over stdio; this reflects a real constraint of the MCP SDK. |
 | **Tool registry (9 domains, 27 tools)** | Domain-modular `register_<domain>_tools` registration; a CI drift-guard asserts the exact tool surface so an accidental add or rename fails the build. |
 | **Grounding gate (Output Contract)** | Every tool returns a frozen Pydantic `GroundedEnvelope` of `Claim`s, each carrying a 4-state confidence tier; a worst-tier rollup and a finalize gate block anything unsourced from being presented as grounded. |
 | **pgvector RAG** | Retrieval over a primary-source corpus (statutes, regulatory text) so cited answers trace to real documents. |
@@ -141,4 +141,4 @@ See [docs/tech-decisions.md](docs/tech-decisions.md) for detailed excerpts.
 
 **Built by [James Shehan](https://jamesshehan.dev)** · TPM / Solutions Architect
 
-📬 [Request source code access](mailto:james@jamesshehan.dev?subject=Source%20Access%20Request%20-%20AI%20Chief%20of%20Staff) for interview review
+📬 [Request source access](mailto:james@jamesshehan.dev?subject=Source%20Access%20Request%20-%20AI%20Chief%20of%20Staff)
