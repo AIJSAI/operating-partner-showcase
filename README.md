@@ -65,7 +65,7 @@ flowchart LR
 | **Tool registry (9 domains, 27 tools)** | Domain-modular `register_<domain>_tools` registration; a CI drift-guard asserts the exact tool surface so an accidental add or rename fails the build. |
 | **Grounding gate (Output Contract)** | Every tool returns a frozen Pydantic `GroundedEnvelope` of `Claim`s, each carrying a 4-state confidence tier; a worst-tier rollup and a finalize gate block anything unsourced from being presented as grounded. |
 | **pgvector RAG** | Retrieval over a primary-source corpus (statutes, regulatory text) so cited answers trace to real documents. |
-| **External integrations** | Regulatory registers and an external production compliance engine (Ratify), reached through a circuit-breaker-guarded MCP client that degrades gracefully when the upstream is unavailable. |
+| **External integrations** | Regulatory registers and an external compliance engine (Ratify), reached through a circuit-breaker-guarded MCP client that degrades gracefully when the upstream is unavailable. |
 
 ## Tech Stack
 
@@ -92,7 +92,7 @@ flowchart LR
 
 **Challenge**: Advisory answers (a tax deadline, a privacy obligation) are only safe if they are traceable. Free-form tool output invites unsourced assertions and gives the reasoning agent no machine-readable signal about how much to trust each claim.
 
-**Solution**: A frozen Pydantic **Output Contract**. Every tool returns a `GroundedEnvelope` of `Claim` objects, each carrying a 4-state confidence tier (a pattern adapted from a production compliance system's tiering). The envelope computes a **worst-tier rollup**, so the whole answer is only as trustworthy as its weakest claim, and a **finalize gate** blocks shipping anything that fails grounding. The reasoning agent receives both the answer and an honest, structured confidence signal.
+**Solution**: A frozen Pydantic **Output Contract**. Every tool returns a `GroundedEnvelope` of `Claim` objects, each carrying a 4-state confidence tier (a pattern adapted from a compliance engine's tiering). The envelope computes a **worst-tier rollup**, so the whole answer is only as trustworthy as its weakest claim, and a **finalize gate** blocks shipping anything that fails grounding. The reasoning agent receives both the answer and an honest, structured confidence signal.
 
 ### 3. A Taxonomy of Grounding, Not Just "Cite Your Sources"
 
