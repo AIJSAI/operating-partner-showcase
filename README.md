@@ -4,9 +4,9 @@
 
 ---
 
-**This repository documents the architecture and design decisions for the AI Chief of Staff ("the Chief"). Source code is available on request.**
+**This repository documents the architecture and design decisions for the AI Chief of Staff ("the Chief"). The implementation is private.**
 
-📄 [Portfolio](https://jamesshehan.dev) · 📬 [Request Source Access](mailto:james@jamesshehan.dev?subject=Source%20Access%20Request%20-%20AI%20Chief%20of%20Staff)
+📄 [Portfolio](https://jamesshehan.dev)
 
 ---
 
@@ -141,4 +141,3 @@ See [docs/tech-decisions.md](docs/tech-decisions.md) for detailed excerpts.
 
 **Built by [James Shehan](https://jamesshehan.dev)** · TPM / Solutions Architect
 
-📬 [Request source access](mailto:james@jamesshehan.dev?subject=Source%20Access%20Request%20-%20AI%20Chief%20of%20Staff)
